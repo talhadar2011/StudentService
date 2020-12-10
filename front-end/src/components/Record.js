@@ -92,7 +92,7 @@ class Record extends Component{
             // address={modalData.address}
              saveEditRecord={this.saveEditRecord}
             />
-
+            <h5 style={{ textAlign: "center" }}> Create By Talha Dar</h5>
           </div>
         );
       }
