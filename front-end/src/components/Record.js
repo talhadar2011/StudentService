@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import EditRecord from './EditRecord';
 class Record extends Component{
  
     constructor(props){
@@ -9,6 +10,7 @@ class Record extends Component{
             
         };
         this.updateIndex=this.updateIndex.bind(this);
+        this.saveEditRecord=this.saveEditRecord.bind(this);
 
     }
 
@@ -34,7 +36,12 @@ class Record extends Component{
              }
          );
      }
-   
+     saveEditRecord(student) {
+        const Index = this.state.Index;
+        let tempstudent = this.state.students;
+        tempstudent[Index] = student;
+        this.setState({ student: tempstudent });
+      }
 
      render() {    
         const Students = this.state.students.map((student, index) => {
@@ -78,7 +85,13 @@ class Record extends Component{
                 {Students}
               </tbody>
             </table>
-            
+            <EditRecord
+             //firstName={this.state.students.firstName}
+            // lastName={modalData.lastName}
+            // matriculationNumber={modalData.matriculationNumber}
+            // address={modalData.address}
+             saveEditRecord={this.saveEditRecord}
+            />
 
           </div>
         );
